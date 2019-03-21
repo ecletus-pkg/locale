@@ -8,8 +8,9 @@ import (
 )
 
 type Plugin struct {
-	ConfigDirKey string
-	LocaleKey    string
+	ConfigDirKey  string
+	LocaleKey     string
+	DefaultLocale string
 }
 
 func (p *Plugin) ProvideOptions() []string {

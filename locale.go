@@ -8,7 +8,7 @@ import (
 func DefaultLocale() string {
 	locale := os.Getenv("LANG")
 	if locale != "" {
-		locale = strings.Split(locale, ".")[0]
+		locale = strings.Replace(strings.Split(locale, ".")[0], "_", "-", 1)
 	}
 	return locale
 }
@@ -36,5 +36,11 @@ func (l *Locale) SetDefaults() *Locale {
 	if !hasDefault {
 		l.Languages = append(l.Languages, l.Default)
 	}
+
+	l.Default = strings.Replace(l.Default, "_", "-", 1)
+	for i, v := range l.Languages {
+		l.Languages[i] = strings.Replace(v, "_", "-", 1)
+	}
+
 	return l
 }
