@@ -1,2 +1,2 @@
 # locale
-Locale Plugin for Aghape Framework
+Locale Plugin for Ecletus Framework

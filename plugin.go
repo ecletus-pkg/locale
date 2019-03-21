@@ -3,8 +3,8 @@ package locale
 import (
 	"os"
 
-	"github.com/aghape/aghape"
-	"github.com/aghape/plug"
+	"github.com/ecletus/ecletus"
+	"github.com/ecletus/plug"
 )
 
 type Plugin struct {
@@ -23,7 +23,7 @@ func (p *Plugin) RequireOptions() []string {
 
 func (p *Plugin) Init(options *plug.Options) error {
 	var l = &Locale{}
-	config_dir := options.GetInterface(p.ConfigDirKey).(*aghape.ConfigDir)
+	config_dir := options.GetInterface(p.ConfigDirKey).(*ecletus.ConfigDir)
 	if err := config_dir.Load(l, "locale.yaml"); err != nil {
 		if !os.IsNotExist(err) {
 			return err
