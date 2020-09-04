@@ -21,7 +21,7 @@ func (p *Plugin) RequireOptions() []string {
 	return []string{p.ConfigDirKey}
 }
 
-func (p *Plugin) Init(options *plug.Options) error {
+func (p *Plugin) ProvidesOptions(options *plug.Options) error {
 	var l = &Locale{}
 	config_dir := options.GetInterface(p.ConfigDirKey).(*ecletus.ConfigDir)
 	if err := config_dir.Load(l, "locale.yaml"); err != nil {
